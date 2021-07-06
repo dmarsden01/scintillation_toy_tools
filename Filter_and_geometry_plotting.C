@@ -32,7 +32,8 @@ int Filter_and_geometry_plotting(){
     std::cout << "Number of events to run over is " << number_events << endl;
 
     //Storing the event a photon is associated with and the total number of detected photons
-    int data_event, data_event_vuv, data_event_vis, pmt_number, pmt_number_vis, data_time;
+    int data_event, data_event_vuv, data_event_vis, pmt_number, pmt_number_vis;
+    double data_time;
     data_tree_Solar->SetBranchAddress("data_event", &data_event);//This stores the number of the event from which the photon was produced
     data_tree_Solar->SetBranchAddress("data_time", &data_time);
     data_tree_vuv_Solar->SetBranchAddress("data_event_vuv", &data_event_vuv);
