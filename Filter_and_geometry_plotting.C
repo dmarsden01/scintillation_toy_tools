@@ -126,14 +126,6 @@ int Filter_and_geometry_plotting(){
     std::vector<double> closest_y; //This is for a test to look at the y-dependence of light detected (found there was only a correlation for x < 50cm)
     std::vector<double> E_cut_vec, x_cut_vec, uncoated_x_cut_vec, coated_x_cut_vec, several_x_cut_vec, rat_cut_vec;
 
-    std::vector<int> num_events_per_bin (50); //To make a histogram with 50 bins which displays the x-distribution of events
-    int bin_number = 0; //Stores the bin number the event is associated with (by using the position)
-    for(int i = 0; i < number_events; i++) {
-        event_tree_Solar->GetEntry(i);
-	bin_number = floor( event_x_Solar/7.0); //Here divided by 7 as old x range was 350, 350/7 = 50, i.e number of histogram bins
-	num_events_per_bin[bin_number] ++;
-    }
-
     //-----Initialising histograms to be filled-------//
     //1D histograms for the energy of events
     //TH1D *h_1D_E = new TH1D("histo_E", "", 100, 0, 25);
