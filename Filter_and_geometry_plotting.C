@@ -18,7 +18,7 @@ int Filter_and_geometry_plotting(){
     c->SetGrid();
  
     //Which toy MC output file to read in
-    TFile *f_Solar = new TFile("../new_data/8B_10000_uniform.root"); 
+    TFile *f_Solar = new TFile("../scintillation_toy_mc/output/8B_100000_uniform.root"); 
     //TFile *f_Solar = new TFile("../new_data/a_gamma_10000_uniform_full_scint.root");
     
     //This makes pointers to the TTrees
@@ -251,7 +251,7 @@ int Filter_and_geometry_plotting(){
     double perc_rounded_coated = roundf(fraction_plotted_coated*1000)/10;
     double perc_rounded_several = roundf(fraction_plotted_several*1000)/10;
 
-    mean_ratio = total_ratio/num_events;
+    mean_ratio = total_ratio/number_events;
 
     gStyle->SetOptStat(0);
 
@@ -315,7 +315,6 @@ int Filter_and_geometry_plotting(){
     h_1D_x_cut->Draw("same");
     
     */
-/*
 
     //2D x-position and ratio - FILTER PLOT
     h_2D_x_ratio->SetLabelSize(0.04,"xyz");
@@ -329,7 +328,7 @@ int Filter_and_geometry_plotting(){
     TLatex t_portion(25,0.65,d_several.str().c_str());
     t_portion.SetTextSize(0.035);
     t_portion.DrawClone();
-
+/*
     //2D x-position and fraction - GEOMETRY PLOT
     h_2D_x_frac->SetTitle("10000 8B events, 6 optical channels per region");
     h_2D_x_frac->SetLabelSize(0.04,"xyz");
@@ -340,7 +339,7 @@ int Filter_and_geometry_plotting(){
     h_2D_x_frac->GetXaxis()->SetTitle("Distance from anode (cm)");
     h_2D_x_frac->GetYaxis()->SetTitle("Fraction of regions for 80% of total light");
     gStyle->SetOptStat(0);
-    h_region->Draw("COLZ");
+    h_2D_x_frac->Draw("COLZ");
     TLatex t_portion(25,0.5,d_several.str().c_str());
     t_portion.SetTextSize(0.035);
     t_portion.DrawClone();
